@@ -5,9 +5,9 @@ dataset_path: murathankurfali/ClimateEval
 dataset_name: null  # exeter
 dataset_kwargs:
   data_files:
-    train: ["exeter/subclaim/training.csv"]
-    validation: ["exeter/subclaim/validation.csv"]
-    test: ["exeter/subclaim/test.csv"]
+    train: ["exeter/sub_claim/training.csv"]
+    validation: ["exeter/sub_claim/validation.csv"]
+    test: ["exeter/sub_claim/test.csv"]
 
 output_type: multiple_choice
 training_split: train
