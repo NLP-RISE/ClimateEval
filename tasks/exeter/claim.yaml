@@ -1,0 +1,47 @@
+tag:
+  - climabench
+task: exeter_claim
+dataset_path: murathankurfali/ClimateEval
+dataset_name: null  # exeter
+dataset_kwargs:
+  data_files:
+    train: ["exeter/claim/training.csv"]
+    validation: ["exeter/claim/validation.csv"]
+    test: ["exeter/claim/test.csv"]
+
+output_type: multiple_choice
+training_split: train
+validation_split: validation
+test_split: test
+fewshot_split: train
+
+doc_to_text: >
+  This is a climate-misinformation classification task. Your task is to determine whether the given text presents a contrarian claim regarding climate change.
+
+  - If the text does not contain a contrarian claim, reply with: '0'.  
+  - If the text contains a contrarian claim, classify it into one of the following claim categories and respond with the corresponding number:  
+    - 1: Global warming is not happening  
+    - 2: Human greenhouse gases are not causing climate change  
+    - 3: Climate impacts/global warming is beneficial/not bad  
+    - 4: Climate solutions won’t work  
+    - 5: Climate movement/science is unreliable  
+
+  Your response should contain only the corresponding number and nothing else (i.e., 0, 1, 2, 3, 4, or 5).  
+
+  TEXT: {{text}}  
+  ANSWER:
+
+doc_to_target: "{{claim_code}}"
+doc_to_choice: ["0", "1", "2", "3", "4", "5"]
+
+should_decontaminate: false
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+  - metric: !function utils.f1
+    aggregation: !function utils.agg_f1
+    higher_is_better: true

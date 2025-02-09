@@ -1,0 +1,60 @@
+tag:
+  - climabench
+task: exeter_subclaim
+dataset_path: murathankurfali/ClimateEval
+dataset_name: null  # exeter
+dataset_kwargs:
+  data_files:
+    train: ["exeter/subclaim/training.csv"]
+    validation: ["exeter/subclaim/validation.csv"]
+    test: ["exeter/subclaim/test.csv"]
+
+output_type: multiple_choice
+training_split: train
+validation_split: validation
+test_split: test
+fewshot_split: train
+
+doc_to_text: >
+  This is a climate-misinformation classification task. Your task is to determine whether the given text presents a contrarian claim regarding climate change.
+  
+  If the text does not contain a contrarian claim, reply with: '0_0'.  
+  If the text contains a contrarian claim, classify it into one of the following subclaim categories and respond with the corresponding subclaim code:
+
+  - 1_1: Ice/permafrost/snow cover isn’t melting  
+  - 1_2: We’re heading into an ice age/global cooling  
+  - 1_3: Weather is cold/snowing  
+  - 1_4: Climate hasn’t warmed/changed over the last (few) decade(s)  
+  - 1_6: Sea level rise is exaggerated/not accelerating  
+  - 1_7: Extreme weather isn’t increasing/has happened before/isn’t linked to climate change  
+  - 2_1: It’s natural cycles/variation  
+  - 2_3: There’s no evidence for greenhouse effect/carbon dioxide driving climate change  
+  - 3_1: Climate sensitivity is low/negative feedbacks reduce warming  
+  - 3_2: Species/plants/reefs aren’t showing climate impacts/are benefiting from climate change  
+  - 3_3: CO2 is beneficial/not a pollutant  
+  - 4_1: Climate policies (mitigation or adaptation) are harmful  
+  - 4_2: Climate policies are ineffective/flawed  
+  - 4_4: Clean energy technology/biofuels won’t work  
+  - 4_5: People need energy (e.g., from fossil fuels/nuclear)  
+  - 5_1: Climate-related science is unreliable/uncertain/unsound (data, methods & models)  
+  - 5_2: Climate movement is unreliable/alarmist/corrupt  
+
+  Your response should contain only the corresponding subclaim code and nothing else (e.g., "0_0", "1_1", "2_3", "5_2").  
+
+  TEXT: {{text}}  
+  ANSWER:
+
+doc_to_target: "{{sub_claim_code}}"
+doc_to_choice: ["0_0", "1_1", "1_2", "1_3", "1_4", "1_6", "1_7", "2_1", "2_3", "3_1", "3_2", "3_3", "4_1", "4_2", "4_4", "4_5", "5_1", "5_2"]
+
+should_decontaminate: false
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+  - metric: !function utils.f1_subclaim
+    aggregation: !function utils.agg_f1
+    higher_is_better: true
