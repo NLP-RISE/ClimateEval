@@ -1,0 +1,39 @@
+tag:
+  - ClimateEval
+task: climate_commitments_actions
+dataset_path: climatebert/climate_commitments_actions
+dataset_name: null  # climatext
+dataset_kwargs:
+  data_files:
+    train: ["data/train-00000-of-00001-2044cce9e261c6b3.parquet"]
+    test: ["data/test-00000-of-00001-77f76c0960abb9c6.parquet"]
+
+output_type: multiple_choice
+training_split: train
+validation_split: train
+test_split: test
+fewshot_split: train
+
+doc_to_text: "Determine whether the following climate-related paragraph describes a corporate commitment to climate action.  
+- Output 1 if it mentions undertaken or planned climate actions, goals, or targets.  
+- Output 0 if it does not discuss company-level climate activities.  
+
+Paragraph: {{text}}  
+Answer:"
+
+
+doc_to_target: "{{label}}"
+doc_to_choice: ["0", "1"]
+
+process_docs: !function utils.filter_binary
+should_decontaminate: false
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+  - metric: !function utils.f1
+    aggregation: !function utils.agg_f1
+    higher_is_better: true
