@@ -1,0 +1,44 @@
+tag:
+  - ClimateEval
+task: tcfd_recommendations
+dataset_path: climatebert/tcfd_recommendations
+dataset_name: null  # climatext
+dataset_kwargs:
+  data_files:
+    train: ["data/train-00000-of-00001-e3693fcfe807428a.parquet"]
+    test: ["data/test-00000-of-00001-be77805a8eff20c6.parquet"]
+
+output_type: multiple_choice
+training_split: train
+validation_split: train
+test_split: test
+fewshot_split: train
+
+doc_to_text: "The Task Force on Climate-related Financial Disclosures (TCFD) provides a framework for companies to report climate-related financial risks and opportunities.  
+Determine whether the following financial disclosure paragraph is related to climate change. If it is climate-related, classify it into one of the four TCFD categories. Otherwise, classify it as 'none'.  
+
+- none: The paragraph is not climate-related.
+- governance: Describes how a company’s board and management oversee climate-related risks and opportunities.  
+- strategy: Discusses the actual and potential impacts of climate-related risks and opportunities on the company’s business, strategy, and financial planning.  
+- risk: Explains how the company identifies, assesses, and manages climate-related risks.  
+- metrics: Reports the metrics and targets used to assess and manage climate-related risks and opportunities.  
+
+Paragraph: {{text}}  
+Category:"
+
+
+doc_to_target: "{{label}}"
+doc_to_choice: ["none", "metrics", "strategy", "risk", "governance"]
+
+process_docs: !function utils.filter_binary
+should_decontaminate: false
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+  - metric: !function utils.f1
+    aggregation: !function utils.agg_f1
+    higher_is_better: true
