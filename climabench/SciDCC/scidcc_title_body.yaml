@@ -7,9 +7,9 @@ dataset_path: murathankurfali/ClimateEval
 dataset_name: null  # climate_stance
 dataset_kwargs:
   data_files:
-    train: ["SciDCC/title_summary/train.csv"]
-    validation: ["SciDCC/title_summary/dev.csv"]
-    test: ["SciDCC/title_summary/test.csv"]
+    train: ["SciDCC/title_body/train.csv"]
+    validation: ["SciDCC/title_body/dev.csv"]
+    test: ["SciDCC/title_body/test.csv"]
 
 output_type: multiple_choice
 training_split: train
