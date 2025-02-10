@@ -1,6 +1,7 @@
 tag:
   - ClimateEval
   - climabench
+  - scidcc
 task: scidcc_title
 dataset_path: murathankurfali/ClimateEval
 dataset_name: null  # climate_stance
