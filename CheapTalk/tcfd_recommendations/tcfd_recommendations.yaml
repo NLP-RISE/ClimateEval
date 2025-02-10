@@ -30,7 +30,6 @@ Category:"
 doc_to_target: "{{label}}"
 doc_to_choice: ["none", "metrics", "strategy", "risk", "governance"]
 
-process_docs: !function utils.filter_binary
 should_decontaminate: false
 metric_list:
   - metric: acc

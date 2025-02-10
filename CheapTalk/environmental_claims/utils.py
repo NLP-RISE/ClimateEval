@@ -2,10 +2,6 @@ import datasets
 import numpy as np
 import sklearn.metrics
 
-def filter_binary(dataset: datasets.Dataset) -> datasets.Dataset:
-    # Only supports and refutes
-    return dataset.filter(lambda example: example["label"] in [0,1])
-
 def f1(predictions, references):  # This is a passthrough function
 
     _prediction = predictions[0]

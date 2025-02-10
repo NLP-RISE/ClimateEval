@@ -25,7 +25,6 @@ Category:"
 doc_to_target: "{{target}}"
 doc_to_choice: ["none", "reduction", "net-zero"]
 
-process_docs: !function utils.filter_binary
 should_decontaminate: false
 metric_list:
   - metric: acc

@@ -24,7 +24,6 @@ Answer:"
 doc_to_target: "{{label}}"
 doc_to_choice: ["0", "1"]
 
-process_docs: !function utils.filter_binary
 should_decontaminate: false
 metric_list:
   - metric: acc
