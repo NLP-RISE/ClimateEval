@@ -13,13 +13,13 @@ doc_to_text: "Classify the following claim based on the given evidence into one 
 
   supported:  The evidence confirms the claim.
   refuted:  The evidence contradicts the claim.
-  not-enough-info: The evidence does not provide sufficient information to verify the claim.
+  inconclusive: The evidence does not provide sufficient information to verify the claim.
   Claim: {{claim}}
   Evidence: {{evidence}}
   Category:"
 
 doc_to_target: "{{label}}"
-doc_to_choice: "{{['supported', 'refuted', 'not-enough-info']}}"
+doc_to_choice: "{{['supported', 'refuted', 'inconclusive']}}"
 should_decontaminate: false
 metric_list:
   - metric: acc
