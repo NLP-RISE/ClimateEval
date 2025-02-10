@@ -24,7 +24,7 @@ def f1(predictions, references):  # This is a passthrough function
 
 def agg_f1(items):
 
-    predictions, references = zip(*items)
+    references, predictions = zip(*items)
     references, predictions = np.asarray(references), np.asarray(predictions)
 
     return sklearn.metrics.f1_score(references, predictions, average='macro')

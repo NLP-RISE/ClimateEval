@@ -1,17 +1,32 @@
 tag:
-  - climabench
+  - ClimateEval
 task: climate_text
-dataset_path: eci-io/climate-evalutaion
-dataset_name: null #climatext
-dataset_kwargs: {data_files:{"train": ['ClimaText/train-data/Wiki-Doc-Train.tsv'], "validation": ['ClimaText/dev-data/Wikipedia (dev).tsv', 'ClimaText/dev-data/Wiki-Doc-Dev.tsv'], "test": ["ClimaText/test-data/10-Ks (2018, test).tsv", "ClimaText/test-data/Claims (test).tsv", "ClimaText/test-data/Wikipedia (test).tsv", "ClimaText/test-data/Wiki-Doc-Test.tsv"]}}
+dataset_path: iceberg-nlp/climabench
+dataset_name: null  # climatext
+dataset_kwargs:
+  data_files:
+    train: ["ClimaText/train-data/Wiki-Doc-Train.tsv"]
+    validation: ["ClimaText/dev-data/Wikipedia (dev).tsv", "ClimaText/dev-data/Wiki-Doc-Dev.tsv"]
+    test: ["ClimaText/test-data/10-Ks (2018, test).tsv", "ClimaText/test-data/Claims (test).tsv", "ClimaText/test-data/Wikipedia (test).tsv", "ClimaText/test-data/Wiki-Doc-Test.tsv"]
+
 output_type: multiple_choice
 training_split: train
 validation_split: validation
 test_split: test
 fewshot_split: validation
-doc_to_text: "Given the following statement, is it relevant to climate change or not:\n{{sentence}}\nAnswer:"
+
+doc_to_text: >
+  Check if the sentence is related to climate change. It should describe how climate is changing, what causes these changes, or what effects they have. 
+
+  - If the sentence is about climate change, label it as '1'.  
+  - If it only talks about nature, pollution, or other science topics without linking them to climate change, label it as '0'.  
+
+  Sentence: {{sentence}}  
+  Answer:
+
 doc_to_target: "{{label}}"
-doc_to_choice: "{{['irrelevant', 'relevant']}}"
+doc_to_choice: ["0", "1"]
+
 process_docs: !function utils.filter_binary
 should_decontaminate: false
 metric_list:

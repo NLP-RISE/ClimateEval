@@ -1,5 +1,5 @@
 tag:
-  - climabench
+  - ClimateEval
 task: exeter_subclaim
 dataset_path: murathankurfali/ClimateEval
 dataset_name: null  # exeter
