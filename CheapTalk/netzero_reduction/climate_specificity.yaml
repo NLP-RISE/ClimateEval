@@ -1,0 +1,39 @@
+tag:
+  - ClimateEval
+task: netzero_reduction
+dataset_path: climatebert/netzero_reduction_data
+dataset_name: null  # climatext
+dataset_kwargs:
+  data_files:
+    test: ["targets_final.csv"]
+
+output_type: multiple_choice
+training_split: test
+validation_split: test
+test_split: test
+fewshot_split: test
+
+doc_to_text: "Determine whether the following corporate statement about climate commitments falls into one of these three categories:  
+
+- net-zero: The company states a **net-zero goal** but does **not** specify concrete reduction measures.  
+- reduction: The statement describes **direct emission reductions**, such as reducing CO₂ output, adopting renewable energy, or increasing energy efficiency.  
+- none:  The statement does **not mention** a net-zero commitment or specific emission reduction targets.  
+
+Statement: {{text}}  
+Category:"
+
+doc_to_target: "{{target}}"
+doc_to_choice: ["none", "reduction", "net-zero"]
+
+process_docs: !function utils.filter_binary
+should_decontaminate: false
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+  - metric: !function utils.f1
+    aggregation: !function utils.agg_f1
+    higher_is_better: true
