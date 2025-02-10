@@ -5,8 +5,8 @@ dataset_path: climatebert/climate_specificity
 dataset_name: null  # climatext
 dataset_kwargs:
   data_files:
-    train: ["test-00000-of-00001-2588e03729a1bfe7.parquet"]
-    test: ["data/train-00000-of-00001-298fad749f8929f7.parquet"]
+    train: ["data/train-00000-of-00001-298fad749f8929f7.parquet"]
+    test: ["data/test-00000-of-00001-2588e03729a1bfe7.parquet"]
 
 output_type: multiple_choice
 training_split: train
