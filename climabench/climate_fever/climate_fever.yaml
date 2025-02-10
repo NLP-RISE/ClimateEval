@@ -20,7 +20,7 @@ doc_to_text: >
   Category:
 
 doc_to_target: "{{label}}"
-doc_to_choice: "{{['supported', 'refuted', 'not enough info' ]}}"
+doc_to_choice: "{{['supported', 'refuted', 'not-enough-info']}}"
 should_decontaminate: false
 metric_list:
   - metric: acc
