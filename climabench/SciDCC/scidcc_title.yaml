@@ -39,7 +39,7 @@ doc_to_text: "Classify the following news title into one of the 20 scientific ca
 - Geology  
 - Global Warming  
 
-News Title: {{title}}  
+News Title: {{Title}}  
 Category:"
 
 
