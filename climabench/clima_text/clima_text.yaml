@@ -1,13 +1,13 @@
 tag:
   - ClimateEval
 task: climate_text
-dataset_path: iceberg-nlp/climabench
+dataset_path: murathankurfali/ClimateEval
 dataset_name: null  # climatext
 dataset_kwargs:
   data_files:
-    train: ["ClimaText/train-data/Wiki-Doc-Train.tsv"]
-    validation: ["ClimaText/dev-data/Wikipedia (dev).tsv", "ClimaText/dev-data/Wiki-Doc-Dev.tsv"]
-    test: ["ClimaText/test-data/10-Ks (2018, test).tsv", "ClimaText/test-data/Claims (test).tsv", "ClimaText/test-data/Wikipedia (test).tsv", "ClimaText/test-data/Wiki-Doc-Test.tsv"]
+    train: ["climate_text/train-data/Wiki-Doc-Train.tsv"]
+    validation: ["climate_text/dev-data/Wikipedia (dev).tsv", "ClimaText/dev-data/Wiki-Doc-Dev.tsv"]
+    test: ["climate_text/test-data/10-Ks (2018, test).tsv", "ClimaText/test-data/Claims (test).tsv", "ClimaText/test-data/Wikipedia (test).tsv", "ClimaText/test-data/Wiki-Doc-Test.tsv"]
 
 output_type: multiple_choice
 training_split: train
