@@ -37,7 +37,7 @@ doc_to_text: "This is a climate-misinformation classification task. Your task is
   - 5_1: Climate-related science is unreliable/uncertain/unsound (data, methods & models)  
   - 5_2: Climate movement is unreliable/alarmist/corrupt  
 
-  Your response should contain only the corresponding subclaim code and nothing else (e.g., '0_0', '1_1', '2_3', '5_2').  
+  Your response should contain only the corresponding subclaim code and nothing else (e.g., \'0_0\', \'1_1\', \'2_3\', \'5_2\').  
 
   TEXT: {{text}}  
   ANSWER:"
