@@ -1,0 +1,63 @@
+tag:
+  - ClimateEval
+  - climabench
+task: scidcc_title_summary
+dataset_path: murathankurfali/ClimateEval
+dataset_name: null  # climate_stance
+dataset_kwargs:
+  data_files:
+    train: ["SciDCC/title_summary/train.csv"]
+    validation: ["SciDCC/title_summary/val.csv"]
+    test: ["SciDCC/title_summary/test.csv"]
+
+output_type: multiple_choice
+training_split: train
+validation_split: validation
+test_split: test
+fewshot_split: validation
+
+doc_to_text: "Classify the following news title into one of the 20 scientific categories:  
+
+- Earthquakes  
+- Pollution  
+- Genetically Modified  
+- Agriculture & Food  
+- Hurricanes Cyclones  
+- Animals  
+- Weather  
+- Endangered Animals  
+- Climate  
+- Ozone Holes  
+- Biology  
+- New Species  
+- Environment  
+- Biotechnology  
+- Geography  
+- Microbes  
+- Extinction  
+- Zoology  
+- Geology  
+- Global Warming  
+
+News Title: {{title}}  
+Category:"
+
+
+doc_to_target: "{{Category_index}}"
+doc_to_choice: ['Agriculture & Food', 'Animals', 'Biology', 'Biotechnology', 'Climate', 'Earthquakes',
+                'Endangered Animals', 'Environment', 'Extinction', 'Genetically Modified', 'Geography',
+                'Geology', 'Global Warming', 'Hurricanes Cyclones', 'Microbes', 'New Species', 'Ozone Holes',
+                'Pollution', 'Weather', 'Zoology']
+
+
+should_decontaminate: false
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+  - metric: !function utils.f1
+    aggregation: !function utils.agg_f1
+    higher_is_better: true
