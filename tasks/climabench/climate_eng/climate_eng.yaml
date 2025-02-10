@@ -1,13 +1,13 @@
 tag:
   - ClimateEval
 task: climate_eng
-dataset_path: iceberg-nlp/climabench
+dataset_path: murathankurfali/ClimateEval
 dataset_name: null  # climate_eng
 dataset_kwargs:
   data_files:
-    train: ["ClimateEng/train.csv"]
-    validation: ["ClimateEng/val.csv"]
-    test: ["ClimateEng/test.csv"]
+    train: ["climate_eng/train.csv"]
+    validation: ["climate_eng/val.csv"]
+    test: ["climate_eng/test.csv"]
 
 output_type: multiple_choice
 training_split: train
