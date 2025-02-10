@@ -1,5 +1,6 @@
 tag:
   - ClimateEval
+  - CheapTalk
   - climatebert
 task: tcfd_recommendations
 dataset_path: climatebert/tcfd_recommendations

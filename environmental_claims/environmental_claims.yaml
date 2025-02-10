@@ -1,5 +1,6 @@
 tag:
   - ClimateEval
+  - climatebert
 task: environmental_claims
 dataset_path: climatebert/environmental_claims
 dataset_name: null  # climatext
