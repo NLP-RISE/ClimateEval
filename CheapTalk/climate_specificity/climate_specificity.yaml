@@ -1,13 +1,12 @@
 tag:
   - ClimateEval
-task: clima_text
-dataset_path: murathankurfali/ClimateEval
+task: climate_specificity
+dataset_path: climatebert/climate_specificity
 dataset_name: null  # climatext
 dataset_kwargs:
   data_files:
-    train: ["clima_text/train-data/Wiki-Doc-Train.tsv"]
-    validation: ["clima_text/dev-data/Wikipedia (dev).tsv", "ClimaText/dev-data/Wiki-Doc-Dev.tsv"]
-    test: ["clima_text/test-data/10-Ks (2018, test).tsv", "ClimaText/test-data/Claims (test).tsv", "ClimaText/test-data/Wikipedia (test).tsv", "ClimaText/test-data/Wiki-Doc-Test.tsv"]
+    train: ["test-00000-of-00001-2588e03729a1bfe7.parquet"]
+    test: ["data/train-00000-of-00001-298fad749f8929f7.parquet"]
 
 output_type: multiple_choice
 training_split: train
@@ -15,12 +14,10 @@ validation_split: validation
 test_split: test
 fewshot_split: validation
 
-doc_to_text: "Check if the sentence is related to climate change. It should describe how climate is changing, what causes these changes, or what effects they have. 
+doc_to_text: "Determine whether the given climate-related paragraph is specific or not. 
+Output if the given paragraph is not specifically about climate, 1 otherwise.
 
-  - If the sentence is about climate change, label it as '1'.  
-  - If it only talks about nature, pollution, or other science topics without linking them to climate change, label it as '0'.  
-
-  Sentence: {{sentence}}  
+  Paragraph: {{text}}  
   Answer:"
 
 doc_to_target: "{{label}}"
