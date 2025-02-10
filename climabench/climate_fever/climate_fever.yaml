@@ -9,15 +9,14 @@ output_type: multiple_choice
 training_split: test
 validation_split: test
 test_split: test
-doc_to_text: >
-  Classify the following claim based on the given evidence into one of three categories:
+doc_to_text: "Classify the following claim based on the given evidence into one of three categories:
 
   supported:  The evidence confirms the claim.
   refuted:  The evidence contradicts the claim.
   not-enough-info: The evidence does not provide sufficient information to verify the claim.
   Claim: {{claim}}
   Evidence: {{evidence}}
-  Category:
+  Category:"
 
 doc_to_target: "{{label}}"
 doc_to_choice: "{{['supported', 'refuted', 'not-enough-info']}}"
