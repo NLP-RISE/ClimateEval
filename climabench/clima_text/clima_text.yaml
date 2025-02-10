@@ -7,8 +7,8 @@ dataset_name: null  # climatext
 dataset_kwargs:
   data_files:
     train: ["clima_text/train-data/Wiki-Doc-Train.tsv"]
-    validation: ["clima_text/dev-data/Wikipedia (dev).tsv", "ClimaText/dev-data/Wiki-Doc-Dev.tsv"]
-    test: ["clima_text/test-data/10-Ks (2018, test).tsv", "ClimaText/test-data/Claims (test).tsv", "ClimaText/test-data/Wikipedia (test).tsv", "ClimaText/test-data/Wiki-Doc-Test.tsv"]
+    validation: ["clima_text/dev-data/Wikipedia (dev).tsv", "clima_text/dev-data/Wiki-Doc-Dev.tsv"]
+    test: ["clima_text/test-data/10-Ks (2018, test).tsv", "clima_text/test-data/Claims (test).tsv", "clima_text/test-data/Wikipedia (test).tsv", "clima_text/test-data/Wiki-Doc-Test.tsv"]
 
 output_type: multiple_choice
 training_split: train
