@@ -7,7 +7,7 @@ dataset_name: null  # climate_stance
 dataset_kwargs:
   data_files:
     train: ["SciDCC/title/train.csv"]
-    validation: ["SciDCC/title/val.csv"]
+    validation: ["SciDCC/title/dev.csv"]
     test: ["SciDCC/title/test.csv"]
 
 output_type: multiple_choice
