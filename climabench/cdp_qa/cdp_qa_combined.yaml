@@ -1,4 +1,5 @@
 tag:
+  - ClimateEval
   - climabench
 task: cdp_qa_combined
 dataset_path: eci-io/climate-evalutaion

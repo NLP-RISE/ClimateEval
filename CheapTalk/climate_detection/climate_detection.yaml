@@ -1,5 +1,7 @@
 tag:
   - ClimateEval
+  - CheapTalk
+  - climatebert
 task: climate_detection
 dataset_path: climatebert/climate_detection
 dataset_name: null  # climatext

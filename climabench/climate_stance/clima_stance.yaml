@@ -1,5 +1,6 @@
 tag:
   - ClimateEval
+  - climabench
 task: climate_stance
 dataset_path: murathankurfali/ClimateEval
 dataset_name: null  # climate_stance
