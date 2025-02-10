@@ -1,17 +1,33 @@
 tag:
-  - climabench
+  - ClimateEval
 task: climate_stance
-dataset_path: eci-io/climate-evalutaion
-dataset_name: null #climate_stance
-dataset_kwargs: {data_files:{"train": ['ClimateStance/train.csv'], "validation": ['ClimateStance/val.csv'], "test": ["ClimateStance/test.csv"]}}
+dataset_path: eci-io/climate-evaluation
+dataset_name: null  # climate_stance
+dataset_kwargs:
+  data_files:
+    train: ["ClimateStance/train.csv"]
+    validation: ["ClimateStance/val.csv"]
+    test: ["ClimateStance/test.csv"]
+
 output_type: multiple_choice
-training_split: test
+training_split: train
 validation_split: validation
 test_split: test
 fewshot_split: validation
-doc_to_text: "Is the following statement in-favor, against, or ambiguous about climate change prevention:\n{{text}}\nAnswer:"
+
+doc_to_text: >
+  Determine the stance expressed in the following tweet regarding climate change:
+
+  - ambiguous: Do not express any clear stance towards climate change. Tweets with sarcastic tones should also be marked as ambiguous
+  - in-favor: Expressions of opinion, action, concern against the climate change phenomenon.  
+  - against: Expressions of distance, ignorance towards signs of climate change, extreme climates, and the opposition of climate change policies or actions taken by the governing bodies.  
+
+  Tweet: {{text}}  
+  Stance:
+
 doc_to_target: "{{label}}"
-doc_to_choice: "{{['ambiguous', 'in-favour', 'against']}}"
+doc_to_choice: ["ambiguous", "in-favour", "against"]
+
 should_decontaminate: false
 metric_list:
   - metric: acc

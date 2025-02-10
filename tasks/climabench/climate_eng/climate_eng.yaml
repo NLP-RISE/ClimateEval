@@ -1,18 +1,35 @@
 tag:
-  - climabench
+  - ClimateEval
 task: climate_eng
-dataset_path: eci-io/climate-evalutaion
-dataset_name: null #climate_eng
-dataset_kwargs: {data_files:{"train": ['ClimateEng/train.csv'], "validation": ['ClimateEng/val.csv'], "test": ["ClimateEng/test.csv"]}}
+dataset_path: iceberg-nlp/climabench
+dataset_name: null  # climate_eng
+dataset_kwargs:
+  data_files:
+    train: ["ClimateEng/train.csv"]
+    validation: ["ClimateEng/val.csv"]
+    test: ["ClimateEng/test.csv"]
+
 output_type: multiple_choice
 training_split: train
 validation_split: validation
 test_split: test
-fewshot_split: validation
+fewshot_split: train
+
+doc_to_text: >
+  Classify the following tweet into one of the five categories:
+
+  - disaster: Mentions natural disasters or extreme weather events.
+  - ocean/water: Talks about oceans, water bodies, or sea-level rise.
+  - agriculture/forestry: Discusses farming, forests, or land use changes.
+  - politics: Refers to climate policies, government actions, or political debates.
+  - general: Covers broad climate topics that don’t fit the other categories.
+
+  Tweet: {{text}}  
+  Category:
+
 doc_to_target: "{{label}}"
-doc_to_text: "Given the five categories: 'general', 'politics', 'ocean/water', 'agriculture/forestry', 'disaster', assign the following statement to one of the categories: '{{text}}'. \nAnswer:"
-# "Assign the following statement to one of the five given categories: '{{text}}'. \nAnswer:"
-doc_to_choice: "{{['general', 'politics', 'ocean/water', 'agriculture/forestry', 'disaster']}}"
+doc_to_choice: ["general", "politics", "ocean/water", "agriculture/forestry", "disaster"]
+
 process_docs: !function utils.filter_multi
 should_decontaminate: false
 metric_list:

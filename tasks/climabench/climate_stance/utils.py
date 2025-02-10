@@ -8,7 +8,7 @@ def f1(predictions, references):  # This is a passthrough function
     
 def agg_f1(items):
 
-    predictions, references = zip(*items)
+    references, predictions = zip(*items)
     logging.info(f"predictions: {predictions}")
     logging.info(f"references: {references}")
     references, predictions = np.asarray(references), np.asarray(predictions)
