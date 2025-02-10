@@ -1,7 +1,7 @@
 tag:
-  - climabench
-task: climate_fever_boolean
-dataset_path: climate_fever
+  - ClimateEval
+task: climate_fever
+dataset_path: tdiggelm/climate_fever
 output_type: multiple_choice
 training_split: test
 validation_split: test
