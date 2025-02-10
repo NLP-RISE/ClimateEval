@@ -1,0 +1,39 @@
+tag:
+  - ClimateEval
+task: climate_specificity
+dataset_path: climatebert/environmental_claims
+dataset_name: null  # climatext
+dataset_kwargs:
+  data_files:
+    train: ["data/train-00000-of-00001-98aa5228a06a17d0.parquet"]
+    validation : ["data/validation-00000-of-00001-2553e47d408fab28.parquet"]
+    test: ["data/test-00000-of-00001-79fd931297fff765.parquet"]
+
+output_type: multiple_choice
+training_split: train
+validation_split: validation
+test_split: test
+fewshot_split: train
+
+doc_to_text: "Determine whether the following sentence makes an explicit environmental claim.  
+- Output 1 if the sentence states that a product, service, or corporate action is environmentally friendly or has a reduced environmental impact.  
+- Output 0 if the sentence does not explicitly make such a claim.  
+
+Sentence: {{text}}  
+Answer:"
+
+doc_to_target: "{{label}}"
+doc_to_choice: ["0", "1"]
+
+process_docs: !function utils.filter_binary
+should_decontaminate: false
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+  - metric: !function utils.f1
+    aggregation: !function utils.agg_f1
+    higher_is_better: true
