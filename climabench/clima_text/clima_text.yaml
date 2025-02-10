@@ -15,14 +15,13 @@ validation_split: validation
 test_split: test
 fewshot_split: validation
 
-doc_to_text: >
-  Check if the sentence is related to climate change. It should describe how climate is changing, what causes these changes, or what effects they have. 
+doc_to_text: "Check if the sentence is related to climate change. It should describe how climate is changing, what causes these changes, or what effects they have. 
 
   - If the sentence is about climate change, label it as '1'.  
   - If it only talks about nature, pollution, or other science topics without linking them to climate change, label it as '0'.  
 
   Sentence: {{sentence}}  
-  Answer:
+  Answer:"
 
 doc_to_target: "{{label}}"
 doc_to_choice: ["0", "1"]

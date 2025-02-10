@@ -15,15 +15,14 @@ validation_split: validation
 test_split: test
 fewshot_split: validation
 
-doc_to_text: >
-  Determine the stance expressed in the following tweet regarding climate change:
+doc_to_text: "Determine the stance expressed in the following tweet regarding climate change:
 
   - ambiguous: Do not express any clear stance towards climate change. Tweets with sarcastic tones should also be marked as ambiguous
   - in-favor: Expressions of opinion, action, concern against the climate change phenomenon.  
   - against: Expressions of distance, ignorance towards signs of climate change, extreme climates, and the opposition of climate change policies or actions taken by the governing bodies.  
 
   Tweet: {{text}}  
-  Stance:
+  Stance:"
 
 doc_to_target: "{{label}}"
 doc_to_choice: ["ambiguous", "in-favour", "against"]
