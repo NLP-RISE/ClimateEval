@@ -1,5 +1,7 @@
 tag:
   - climabench
+  - cdp_qa
+  - cdp
 task: cdp_qa_states
 dataset_path: murathankurfali/ClimateEval
 dataset_name: null
