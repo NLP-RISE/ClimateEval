@@ -1,29 +1,30 @@
 tag:
   - climabench
-  - cdp_qa
+  - cdp_topic
   - cdp
-task: cdp_qa_corporations
+task: cdp_qa_cities
 dataset_path: murathankurfali/ClimateEval
 dataset_name: null
 dataset_kwargs:
   data_files:
-    train: ["cdp/qa/corporations/train_qa.csv"]
-    validation: ["cdp/qa/corporations/val_qa.csv"]
-    test: ["cdp/qa/corporations/test_qa.csv"]
+    train: ["cdp/topic/cities/train.csv"]
+    validation: ["cdp/topic/cities/val.csv"]
+    test: ["cdp/topic/cities/test.csv"]
 
 output_type: multiple_choice
 training_split: train
 validation_split: validation
 test_split: test
 fewshot_split: validation
-doc_to_text: "Determine whether a given report response answers the corresponding question.  
+doc_to_text: """
+Determine whether a given report response answers the corresponding question.  
 
 - If the response contains relevant information that directly answers the question, label it with: 1.  
 - If the response does not contain relevant information or does not directly address the question, label it with: 0.  
 
 QUESTION: {{question}}  
 RESPONSE: {{answer}}  
-Label:"
+Label:"""
 
 doc_to_target: "{{label}}"
 doc_to_choice: "{{['0', '1']}}"
