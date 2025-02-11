@@ -1,0 +1,43 @@
+tag:
+  - ClimateEval
+  - climateGPT
+  - pira
+task: pira_with_ctx
+dataset_path: 'paulopirozelli/pira'
+dataset_kwargs:
+  data_files:
+    train: ["mcqa/train-00000-of-00001-cdb919924c9d2d4f.parquet"]
+    validation: ["mcqa/validation-00000-of-00001-42647ea31fbd61e7.parquet"]
+    test: ["mcqa/test-00000-of-00001-1c607c8177ebc2d9.parquet"]
+
+dataset_name: null
+output_type: multiple_choice
+training_split: train
+validation_split: validation
+test_split: test
+fewshot_split: train
+doc_to_text: "Answer the following question with the correct alternative based on the provided context.
+
+Context: {{text}}
+
+Question: {{question}}
+A: {{A}}
+B: {{B}} 
+C: {{C}} 
+D: {{D}} 
+E: {{E}}
+Correct Answer:"
+
+doc_to_target: "{{alternative}}"
+doc_to_choice: "{{['A', 'B', 'C', 'D', 'E']}}"
+should_decontaminate: false
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+  - metric: !function utils.f1
+    aggregation: !function utils.agg_f1
+    higher_is_better: true
