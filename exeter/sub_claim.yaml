@@ -1,5 +1,5 @@
 tag:
-  - ClimateEval
+  - SuperClimateEval
   - exeter
 task: exeter_subclaim
 dataset_path: murathankurfali/ClimateEval
