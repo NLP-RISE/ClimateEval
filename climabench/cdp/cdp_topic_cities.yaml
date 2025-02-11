@@ -16,7 +16,7 @@ training_split: train
 validation_split: validation
 test_split: test
 fewshot_split: validation
-doc_to_text: """The following response comes from a questionnaire where organizations, cities, and states report environmental information under the Carbon Disclosure Project (CDP).  
+doc_to_text: "The following response comes from a questionnaire where organizations, cities, and states report environmental information under the Carbon Disclosure Project (CDP).  
 Classify the given response into the most relevant topic from the following list:  
  
 - Adaptation  
@@ -33,12 +33,11 @@ Classify the given response into the most relevant topic from the following list
 - Water
 Your response should contain only the topic name and nothing else.  
 
-RESPONSE: {{response}}  
-TOPIC:
-"""
+RESPONSE: {{text}}  
+TOPIC:"
 
 
-doc_to_target: "{{label}}"
+doc_to_target: "{{label_index}}"
 doc_to_choice: "{{['Adaptation', 'Buildings', 'Climate Hazards', 'Emissions', 'Energy', 'Food', 
 'Governance and Data Management', 'Opportunities', 'Strategy', 'Transport', 
 'Waste', 'Water']}}"

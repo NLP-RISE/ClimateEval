@@ -4,7 +4,7 @@ import sklearn.metrics
 
 labels = ["Adaptation", "Buildings", "Climate Hazards", "Emissions", "Energy", "Food", "Governance and Data Management", "Opportunities", "Strategy", "Transport", "Waste", "Water"]
 columns_to_drop = ["id", "Year Reported to CDP", "Organization", "Parent Section", "Section",
-                   "Question Name", "Row Name", "Comments", "Text"]
+                   "Question Name", "Row Name", "Comments", "Response Answer"]
 
 def label_to_id(example):
     """Maps the Category/Label to an index based on the labels list."""
