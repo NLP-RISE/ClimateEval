@@ -4,13 +4,13 @@ tag:
   - pira
 task: pira_with_ctx
 dataset_path: 'paulopirozelli/pira'
+dataset_name: 'mcqa'
 dataset_kwargs:
   data_files:
     train: ["mcqa/train-00000-of-00001-cdb919924c9d2d4f.parquet"]
     validation: ["mcqa/validation-00000-of-00001-42647ea31fbd61e7.parquet"]
     test: ["mcqa/test-00000-of-00001-1c607c8177ebc2d9.parquet"]
 
-dataset_name: null
 output_type: multiple_choice
 training_split: train
 validation_split: validation
