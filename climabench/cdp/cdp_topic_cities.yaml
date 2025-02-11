@@ -41,7 +41,6 @@ doc_to_target: "{{label_index}}"
 doc_to_choice: "{{['Adaptation', 'Buildings', 'Climate Hazards', 'Emissions', 'Energy', 'Food', 
 'Governance and Data Management', 'Opportunities', 'Strategy', 'Transport', 
 'Waste', 'Water']}}"
-process_docs: !function utils.prepare_topic_dataset
 should_decontaminate: false
 metric_list:
   - metric: acc
