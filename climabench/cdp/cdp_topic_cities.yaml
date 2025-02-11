@@ -33,7 +33,7 @@ Classify the given response into the most relevant topic from the following list
 - Water
 Your response should contain only the topic name and nothing else.  
 
-RESPONSE: {{text}}  
+RESPONSE: {{Text}}  
 TOPIC:"
 
 
