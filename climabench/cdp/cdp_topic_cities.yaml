@@ -16,17 +16,33 @@ training_split: train
 validation_split: validation
 test_split: test
 fewshot_split: validation
-doc_to_text: "Determine whether a given report response answers the corresponding question.  
+doc_to_text: """The following response comes from a questionnaire where organizations, cities, and states report environmental information under the Carbon Disclosure Project (CDP).  
+Classify the given response into the most relevant topic from the following list:  
+ 
+- Adaptation  
+- Buildings  
+- Climate Hazards  
+- Emissions  
+- Energy  
+- Food  
+- Governance and Data Management  
+- Opportunities  
+- Strategy  
+- Transport  
+- Waste  
+- Water
+Your response should contain only the topic name and nothing else.  
 
-- If the response contains relevant information that directly answers the question, label it with: 1.  
-- If the response does not contain relevant information or does not directly address the question, label it with: 0.  
+RESPONSE: {{response}}  
+TOPIC:
+"""
 
-QUESTION: {{question}}  
-RESPONSE: {{answer}}  
-Label:"
 
 doc_to_target: "{{label}}"
-doc_to_choice: "{{['0', '1']}}"
+doc_to_choice: "{{['Adaptation', 'Buildings', 'Climate Hazards', 'Emissions', 'Energy', 'Food', 
+'Governance and Data Management', 'Opportunities', 'Strategy', 'Transport', 
+'Waste', 'Water']}}"
+process_docs: !function utils.prepare_topic_dataset
 should_decontaminate: false
 metric_list:
   - metric: acc
