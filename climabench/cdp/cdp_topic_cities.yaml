@@ -1,6 +1,7 @@
 tag:
+  - ClimateEval
   - climabench
-  - cdp_topic
+  - cdp_qa
   - cdp
 task: cdp_topic_cities
 dataset_path: murathankurfali/ClimateEval

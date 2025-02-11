@@ -1,5 +1,7 @@
 tag:
+  - ClimateEval
   - climabench
+  - climateGPT
   - cdp_qa
   - cdp
 task: cdp_qa_corporations

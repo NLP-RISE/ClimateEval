@@ -1,6 +1,7 @@
 tag:
   - ClimateEval
   - climabench
+  - climateGPT
 task: climate_fever
 dataset_path: murathankurfali/ClimateEval
 dataset_kwargs:

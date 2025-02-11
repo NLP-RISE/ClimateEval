@@ -1,7 +1,10 @@
 tag:
+  - ClimateEval
   - climabench
+  - climateGPT
   - cdp_qa
   - cdp
+
 task: cdp_qa_cities
 dataset_path: murathankurfali/ClimateEval
 dataset_name: null

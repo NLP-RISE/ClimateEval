@@ -1,6 +1,7 @@
 tag:
   - ClimateEval
   - climabench
+  - climateGPT
 task: clima_text
 dataset_path: murathankurfali/ClimateEval
 dataset_name: null  # climatext
