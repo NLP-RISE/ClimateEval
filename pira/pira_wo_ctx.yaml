@@ -2,7 +2,7 @@ tag:
   - ClimateEval
   - climateGPT
   - pira
-task: pira
+task: pira_wo_ctx
 dataset_path: 'paulopirozelli/pira'
 dataset_kwargs:
   data_files:
