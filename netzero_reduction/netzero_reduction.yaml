@@ -14,17 +14,16 @@ validation_split: test
 test_split: test
 fewshot_split: test
 
-doc_to_text: "Determine whether the following corporate statement about climate commitments falls into one of these three categories:  
-
-- net-zero: The company states a **net-zero goal** but does **not** specify concrete reduction measures.  
-- reduction: The statement describes **direct emission reductions**, such as reducing CO₂ output, adopting renewable energy, or increasing energy efficiency.  
-- none:  The statement does **not mention** a net-zero commitment or specific emission reduction targets.  
-
-Statement: {{text}}  
+doc_to_text: "Your task is to classify a provided text whether it contains claims about Reduction or Net Zero targets or none of them.  
+Reduction targets are claims that refer to an absolute or relative reduction of emissions, often accompanied by a baseline year to which the reduction target is compared. 
+Net zero targets represent a special case of reduction targets where an institution states to bring its emissions balance down to no additional net emissions by a certain year. 
+If both targets appear in the text, the main focus of the text is decisive. For instance, most reduction targets serve as intermediary steps for the final goal of net zero. Thus, the focus lies on net zero. 
+As an answer to the provided text, please only respond with 'Reduction' for reduction targets, 'Net Zero' for Net Zero targets or 'None' if no category applies. 
+Provided text : {{text}} 
 Category:"
 
 doc_to_target: "{{target}}"
-doc_to_choice: ["none", "reduction", "net-zero"]
+doc_to_choice: ["None", "Reduction", "Net Zero"]
 
 should_decontaminate: false
 metric_list:
