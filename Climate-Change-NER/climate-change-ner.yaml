@@ -15,8 +15,9 @@ validation_split: validation
 test_split: test
 fewshot_split: train
 
-doc_to_text: "Identify climate-related entities in the following text and return a JSON output in the following format:
+doc_to_text: "Identify climate-related entities in the given text and return the results in structured JSON format.
 
+  Expected JSON Output Format:
   ```json
   {
     \"NER-TYPE1\": [\"sequence1\", \"sequence2\", \"sequence3\"],
@@ -24,12 +25,29 @@ doc_to_text: "Identify climate-related entities in the following text and return
   }
   ```
 
-  The possible NER types are as follows: 
-  climate-assets, climate-datasets, climate-greenhouse-gases, climate-hazards, climate-impacts, climate-mitigations, climate-models, climate-nature, climate-observations, climate-organisms, climate-organizations, climate-problem-origins, and climate-properties.
+  Entity Categories and Definitions:
+  
+  - climate-assets: Physical or economic resources vulnerable to climate hazards, such as health, buildings, infrastructure, crops, and livestock.
+  - climate-datasets: Named collections of climate-related data, including observations, models, historical records, or reanalysis datasets.
+  - climate-greenhouse-gases: Gases contributing to atmospheric warming, such as carbon dioxide and methane.
+  - climate-hazards: Climate-related dangers with potential negative impacts, such as floods, wildfires, droughts, and heatwaves.
+  - climate-impacts: Consequences of climate hazards, particularly negative effects on humans, livestock, or ecosystems.
+  - climate-mitigations: Actions aimed at reducing climate change or adapting to its consequences.
+  - climate-models: Computational models used for climate analysis and prediction, including physical, mathematical, and AI-based models.
+  - climate-nature: Non-living aspects of nature, such as oceans, rivers, atmosphere, winds, and snow.
+  - climate-observations: Tools and instruments used for climate monitoring, such as satellites, spectrometers, and rain gauges.
+  - climate-organisms: Living organisms, including plants and animals, that are relevant to climate studies.
+  - climate-organizations: Institutions or groups with climate-related interests or initiatives.
+  - climate-problem-origins: Factors contributing to climate change, such as fossil fuels, deforestation, and industrial sectors consuming energy.
+  - climate-properties: Climate characteristics, often expressed with measurable values and units.
 
-  A maximum of one entity type can be assigned to a token.
+  Rules for Annotation:
+  - Each token can be assigned a maximum of one entity type.
+  - When a hazard is explicitly described in detail, annotate the full term (e.g., `\"surface water flood\"` instead of just `\"flood\"`).
 
-  The sentence: {{sentence}}"
+  Input Text: {{sentence}}"
+
+
 doc_to_target: "{{entities}}"
 should_decontaminate: false
 metric_list:

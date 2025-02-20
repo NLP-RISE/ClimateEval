@@ -1,3 +1,4 @@
+import json
 from pprint import pprint
 
 import numpy as np
@@ -19,6 +20,14 @@ def entity_f1(predictions, references):
     print("Prediction:")
     pprint(predictions)
     print("Gold:")
+    pprint(references)
+    references = json.loads(references)
+
+    try:
+        predictions = json.loads(predictions)
+    except:
+        print("Json error")
+        return [0,0,0]
 
     pprint(references)
 
