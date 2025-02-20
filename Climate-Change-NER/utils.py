@@ -25,23 +25,30 @@ def entity_f1(predictions, references):
 
 
     for pred, ref in zip(predictions, references):
-        ref = json_repair.loads(ref)
-        pred = json_repair.loads(pred)
+        try:
+            ref = json_repair.loads(ref)
+            pred = json_repair.loads(pred)
 
-        pred_entities = set((etype, ent) for etype, ents in pred.items() for ent in ents)
-        ref_entities = set((etype, ent) for etype, ents in ref.items() for ent in ents)
+            pred_entities = set((etype, ent) for etype, ents in pred.items() for ent in ents)
+            ref_entities = set((etype, ent) for etype, ents in ref.items() for ent in ents)
 
-        true_positives = len(pred_entities & ref_entities)
-        false_positives = len(pred_entities - ref_entities)
-        false_negatives = len(ref_entities - pred_entities)
+            true_positives = len(pred_entities & ref_entities)
+            false_positives = len(pred_entities - ref_entities)
+            false_negatives = len(ref_entities - pred_entities)
 
-        precision = true_positives / (true_positives + false_positives + 1e-9)
-        recall = true_positives / (true_positives + false_negatives + 1e-9)
-        f1 = 2 * (precision * recall) / (precision + recall + 1e-9)
+            precision = true_positives / (true_positives + false_positives + 1e-9)
+            recall = true_positives / (true_positives + false_negatives + 1e-9)
+            f1 = 2 * (precision * recall) / (precision + recall + 1e-9)
 
-        precision_scores.append(precision)
-        recall_scores.append(recall)
-        f1_scores.append(f1)
+            precision_scores.append(precision)
+            recall_scores.append(recall)
+            f1_scores.append(f1)
+        except Exception as e:
+            print("Exception", e)
+            print(pred)
+            precision_scores.append(0)
+            recall_scores.append(0)
+            f1_scores.append(0)
 
     return list(zip(precision_scores, recall_scores, f1_scores))
 
