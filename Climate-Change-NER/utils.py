@@ -22,10 +22,10 @@ def entity_f1(predictions, references):
     pprint(predictions)
     print("Gold:")
     pprint(references)
-    references = json_repair.loads(references)
+    references = json_repair.loads(references[0])
 
     try:
-        predictions = json_repair.loads(predictions)
+        predictions = json_repair.loads(predictions[0])
     except:
         print("Json error")
         return [0,0,0]
