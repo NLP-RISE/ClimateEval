@@ -22,17 +22,12 @@ def entity_f1(predictions, references):
     pprint(predictions)
     print("Gold:")
     pprint(references)
-    references = json_repair.loads(references[0])
 
-    try:
-        predictions = json_repair.loads(predictions[0])
-    except:
-        print("Json error")
-        return [0,0,0]
-
-    pprint(references)
 
     for pred, ref in zip(predictions, references):
+        ref = json_repair.loads(ref)
+        pred = json_repair.loads(pred)
+
         pred_entities = set((etype, ent) for etype, ents in pred.items() for ent in ents)
         ref_entities = set((etype, ent) for etype, ents in ref.items() for ent in ents)
 
