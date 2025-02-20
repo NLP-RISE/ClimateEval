@@ -23,6 +23,8 @@ def entity_f1(predictions, references):
         try:
             ref = json_repair.loads(ref)
             pred = json_repair.loads(pred)
+            if isinstance(pred, list):
+                pred = pred[0]
 
             pred_entities = set((etype, ent) for etype, ents in pred.items() for ent in ents)
             ref_entities = set((etype, ent) for etype, ents in ref.items() for ent in ents)
