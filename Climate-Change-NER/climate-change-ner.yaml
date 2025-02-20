@@ -19,14 +19,13 @@ doc_to_text: "Identify climate-related entities in the following text and return
 Output format:
 
 {{
-  \"entities\": [
-    {{\"sequence\": \"Australian Bureau of Meteorology\", \"label\": \"climate-organizations\"}}
-  ]
+  'NER-TYPE1': ['sequence1', 'sequence2', 'sequence3'], 
+  'NER-TYPE2': ['sequence1']
+  ...
 }}
 The possible NER types are as follows: climate-assets, climate-datasets, climate-greenhouse-gases, climate-hazards, climate-impacts, climate-mitigations, climate-models, climate-nature, climate-observations, climate-organisms, climate-organizations, climate-problem-origins, and climate-properties
 A maximum of one entity type can be assigned to a token.
-The sentence: {{sentence}}
-"
+The sentence: {{sentence}}"
 
 should_decontaminate: false
 metric_list:
