@@ -29,16 +29,11 @@ doc_to_text: "Identify climate-related entities in the following text and return
 
   A maximum of one entity type can be assigned to a token.
 
-  The sentence: {{ sentence }}"
-
+  The sentence: {{sentence}}"
+doc_to_target: "{{entities}}"
 should_decontaminate: false
 metric_list:
-  - metric: acc
-    aggregation: mean
+  - metric: !function utils.entity_f1
+    aggregation: !function utils.agg_entity_f1
     higher_is_better: true
-  - metric: acc_norm
-    aggregation: mean
-    higher_is_better: true
-  - metric: !function utils.f1
-    aggregation: !function utils.agg_f1
-    higher_is_better: true
+
