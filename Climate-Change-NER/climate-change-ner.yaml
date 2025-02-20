@@ -46,7 +46,8 @@ doc_to_text: "Identify climate-related entities in the given text and return the
   - When a hazard is explicitly described in detail, annotate the full term (e.g., `\"surface water flood\"` instead of just `\"flood\"`).
   - Ensure that the JSON output **only** contains a valid dictionary structure without extra text, incorrect formatting, or enclosing quotation marks.
 
-  Input Text: {{sentence}}"
+  Input Text: {{sentence}}
+  Json:"
 
 
 doc_to_target: "{{entities}}"

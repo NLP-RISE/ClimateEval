@@ -18,11 +18,6 @@ def entity_f1(predictions, references):
     precision_scores = []
     recall_scores = []
     f1_scores = []
-    print("Prediction:")
-    pprint(predictions)
-    print("Gold:")
-    pprint(references)
-
 
     for pred, ref in zip(predictions, references):
         try:
@@ -44,11 +39,12 @@ def entity_f1(predictions, references):
             recall_scores.append(recall)
             f1_scores.append(f1)
         except Exception as e:
-            print("Exception", e)
+            print("---- Exception", e)
             print(pred)
             precision_scores.append(0)
             recall_scores.append(0)
             f1_scores.append(0)
+    print(list(zip(precision_scores, recall_scores, f1_scores)))
 
     return list(zip(precision_scores, recall_scores, f1_scores))
 
@@ -57,12 +53,18 @@ def agg_entity_f1(items):
     """
     Aggregates F1-score across dataset instances.
 
-    :param items: List of tuples containing precision, recall, and F1-score for each instance.
-    :return: Mean F1-score across instances.
+    :param items: List of lists containing tuples of (precision, recall, f1-score) for each instance.
+    :return: Dictionary with mean Precision, Recall, and F1-score across instances.
     """
+    # Flatten list of lists into a single list of tuples
+    flat_items = [entry for sublist in items for entry in sublist]
 
-    precision, recall, f1_scores = zip(*items)
-    precision, recall, f1_scores = np.asarray(precision), np.asarray(recall), np.asarray(f1_scores)
+    if not flat_items:  # Handle case where all predictions are empty
+        print("nooo")
+        return {"precision": 0.0, "recall": 0.0, "f1": 0.0}
+
+    # Unpack correctly after flattening
+    precision, recall, f1_scores = zip(*flat_items)
 
     return {
         "precision": np.mean(precision),
