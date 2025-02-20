@@ -1,8 +1,9 @@
 import json
 from pprint import pprint
-
+import json_repair
 import numpy as np
 import sklearn.metrics
+from aiohttp.client_reqrep import json_re
 
 
 def entity_f1(predictions, references):
@@ -21,10 +22,10 @@ def entity_f1(predictions, references):
     pprint(predictions)
     print("Gold:")
     pprint(references)
-    references = json.loads(references)
+    references = json_repair.loads(references)
 
     try:
-        predictions = json.loads(predictions)
+        predictions = json_repair.loads(predictions)
     except:
         print("Json error")
         return [0,0,0]
