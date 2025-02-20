@@ -44,8 +44,6 @@ def entity_f1(predictions, references):
             precision_scores.append(0)
             recall_scores.append(0)
             f1_scores.append(0)
-    print(list(zip(precision_scores, recall_scores, f1_scores)))
-
     return list(zip(precision_scores, recall_scores, f1_scores))
 
 
