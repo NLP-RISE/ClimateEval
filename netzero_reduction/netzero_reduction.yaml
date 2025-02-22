@@ -6,13 +6,13 @@ dataset_path: climatebert/netzero_reduction_data
 dataset_name: null  # climatext
 dataset_kwargs:
   data_files:
-    test: ["targets_final.csv"]
+    train: ["targets_final.csv"]
 
 output_type: multiple_choice
-training_split: test
-validation_split: test
-test_split: test
-fewshot_split: test
+training_split: train
+validation_split: train
+test_split: train
+fewshot_split: train
 
 doc_to_text: "Your task is to classify a provided text whether it contains claims about Reduction or Net Zero targets or none of them.  
 Reduction targets are claims that refer to an absolute or relative reduction of emissions, often accompanied by a baseline year to which the reduction target is compared. 
@@ -23,7 +23,7 @@ Provided text : {{text}}
 Category:"
 
 doc_to_target: "{{target}}"
-doc_to_choice: ["None", "Reduction", "Net Zero"]
+doc_to_choice: ["none", "reduction", "net-zero"]
 
 should_decontaminate: false
 metric_list:

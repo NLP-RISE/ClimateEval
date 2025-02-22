@@ -10,12 +10,16 @@ dataset_kwargs:
     test: ["climate_change_ner/test.parquet"]
 
 output_type: generate_until
+gen_kwargs:
+  do_sample: false
+  temperature: 0.0
+
 training_split: train
 validation_split: validation
 test_split: test
 fewshot_split: train
 
-doc_to_text: "Identify climate-related entities in the given text and return the results in structured JSON format.
+doc_to_text: "Identify climate-related entities in the given sentence and return the results in structured JSON format.
 
 Expected JSON Output Format:
 {
@@ -42,6 +46,7 @@ Expected JSON Output Format:
 
   Instructions:
   - Each token can be assigned a maximum of one entity type.
+  - You are only allowed to use one those entities types above.
   - When a hazard is explicitly described in detail, annotate the full term (e.g., `\"surface water flood\"` instead of just `\"flood\"`).
   - Ensure that the JSON output **only** contains a valid dictionary structure without extra text, incorrect formatting, or enclosing quotation marks.
 
