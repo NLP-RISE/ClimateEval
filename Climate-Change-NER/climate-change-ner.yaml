@@ -10,7 +10,7 @@ dataset_kwargs:
     test: ["climate_change_ner/test.parquet"]
 
 output_type: generate_until
-gen_kwargs:
+generation_kwargs:
   do_sample: false
   temperature: 0.0
 
