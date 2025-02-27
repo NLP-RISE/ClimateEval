@@ -1,7 +1,7 @@
 tag:
   - SuperClimateEval
   - guardian
-task: guardian_climate_news_title
+task: guardian_climate_news_title_body
 dataset_path: NLP-RISE/guardian_climate_news_corpus
 dataset_name: null  # climatext
 dataset_kwargs:
