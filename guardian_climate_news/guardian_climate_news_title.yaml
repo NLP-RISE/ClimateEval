@@ -1,0 +1,48 @@
+tag:
+  - SuperClimateEval
+  - guardian
+task: guardian_climate_news_title
+dataset_path: NLP-RISE/guardian_climate_news_corpus
+dataset_name: null  # climatext
+dataset_kwargs:
+  data_files:
+    train: ["train.csv"]
+    validation: ["dev.csv"]
+    test: ["test.csv"]
+
+output_type: multiple_choice
+training_split: train
+validation_split: train
+test_split: test
+fewshot_split: train
+
+doc_to_text: "Classify the following news title into one of the climate-related categories:
+
+BIODIVERSITY – Articles on biodiversity-related topics such as deforestation, endangered wildlife, or biodiversity loss from the angle of climate-change impact. 
+CLIMATE_ACTIVISM – Articles related to climate strikes, protests, and actions by activists or well-known organizations.
+CLIMATE_DENIAL – Articles discussing climate skepticism, misinformation, or climate change debates.
+CLIMATE_POLICY – Articles on government policies, climate agreements (such as COP summits), carbon taxes, and sustainability initiatives.
+EMISSIONS – Articles covering carbon emissions, carbon footprint, or fossil fuels (not policy-related).
+ENERGY – Articles about energy sources, including renewable energy, fossil fuels, nuclear power, and oil production and extraction.
+EXTREME_CLIMATE_IMPACTS – Articles covering hurricanes, wildfires, floods, droughts, rising sea levels, and other extreme weather events.
+GLOBAL_CRISIS – Articles that broadly discuss the climate crisis and its worldwide impact, often including geopolitical dimensions.
+POLLUTION_AND_WASTE – Articles generally related to pollution, waste management and recycling, and air pollution.
+UNRELATED_TO_CLIMATE – Articles that have no connection to climate change, such as sports, technology, or general news. This category attempts to make the task more challenging by also sampling articles from topics on nature that are unrelated to the climate crisis (such as bird-watching or gardening) and articles on other crises (such as girls' mental health crisis).
+
+All categories are mutually exclusive, so any article can only fall under one of these.
+
+News Title: {{title}}
+Category:"
+
+doc_to_target: "{{label}}"
+doc_to_choice: ['BIODIVERSITY', 'CLIMATE_ACTIVISM', 'CLIMATE_DENIAL', 'CLIMATE_POLICY', 'EMISSIONS', 'ENERGY', 'EXTREME_CLIMATE_IMPACTS', 'GLOBAL_CRISIS', 'POLLUTION_AND_WASTE', 'UNRELATED_TO_CLIMATE']
+
+
+should_decontaminate: false
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: !function utils.f1
+    aggregation: !function utils.agg_f1
+    higher_is_better: true
