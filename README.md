@@ -56,8 +56,8 @@ Or run by subsets, e.g.,:
 |---------------|-------------------------------------------------------------------------------------------------------------------------------|
 | `ClimateEval` | Full ClimateEval benchmark suite                                                                                              |
 | `CheapTalk`   | Corporate climate discourse tasks based on this [paper](https://www.sciencedirect.com/science/article/pii/S0378426624001080) |
-| `climatebert` | Tasks used to evaluate  ([ClimateGPT](https://arxiv.org/pdf/2401.09646))                                                 |
-| `climabench`  | Tasks from the ([ClimaBench benchmark](https://arxiv.org/pdf/2301.04253v2))                                             
+| `climatebert` | Tasks used to evaluate [ClimateGPT](https://arxiv.org/pdf/2401.09646)                                               |
+| `climabench`  | Tasks from the [ClimaBench benchmark](https://arxiv.org/pdf/2301.04253v2)                                             
 
 ## 📄 Citation
 
