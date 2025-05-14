@@ -2,9 +2,9 @@
 
 > This code was originally forked from [eci-io/climategpt-evaluation](https://github.com/eci-io/climategpt-evaluation), with significant modifications and additions.
 
-**ClimateEval** is a comprehensive benchmark designed to evaluate large language models (LLMs) across a wide range of climate change–related NLP tasks. It aggregates 13 datasets into 25 tasks covering classification, QA, information extraction, and misinformation detection — all integrated into the [`lm-eval-harness`](https://github.com/EleutherAI/lm-evaluation-harness) framework.
+**ClimateEval** is a comprehensive benchmark designed to evaluate large language models (LLMs) across a wide range of climate change–related NLP tasks. It aggregates 13 datasets into 25 tasks covering tasks like text classification, question answering, information extraction, and misinformation detection — all integrated into the [`lm-eval-harness`](https://github.com/EleutherAI/lm-evaluation-harness) framework.
 
-This benchmark enables standardized, reproducible assessment of LLMs for climate-focused applications.
+This benchmark enables standardized, reproducible assessment of LLMs for climate-focused tasks.
 
 ## 🔧 Setup Instructions
 
