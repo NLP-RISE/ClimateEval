@@ -1,5 +1,5 @@
 tag:
-  - SuperClimateEval
+  - ClimateEval
   - climatebert
 task: netzero_reduction
 dataset_path: climatebert/netzero_reduction_data

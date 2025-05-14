@@ -1,5 +1,5 @@
 tag:
-  - SuperClimateEval
+  - ClimateEval
   - guardian
 task: guardian_climate_news_title
 dataset_path: NLP-RISE/guardian_climate_news_corpus

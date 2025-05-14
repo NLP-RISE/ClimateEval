@@ -1,5 +1,5 @@
 tag:
-  - SuperClimateEval
+  - ClimateEval
 task: climate_change_ner
 dataset_path: murathankurfali/ClimateEval
 dataset_name: null  # climatext

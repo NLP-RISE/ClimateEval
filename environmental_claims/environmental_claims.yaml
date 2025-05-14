@@ -1,5 +1,5 @@
 tag:
-  - SuperClimateEval
+  - ClimateEval
   - climatebert
 task: environmental_claims
 dataset_path: climatebert/environmental_claims
