@@ -67,7 +67,7 @@ If you use ClimateEval in your work, please cite:
 @inproceedings{ClimateEval2025,
   title={ClimateEval: A Comprehensive Benchmark for NLP Tasks Related to Climate Change},
   author={Murathan Kurfali and Shorouq Zahra and Joakim Nivre and Gabriele Messori},
-  booktitle={Proceedings of the 1st Workshop on Natural Language Processing Meets Climate Change (ClimateNLP 2025) at ACL 2025},
+  booktitle={Proceedings of the 2nd Workshop of Natural Language Processing meets Climate Change (ClimateNLP 2025) at ACL 2025},
   year={2025}
 }
 ```
