@@ -30,12 +30,12 @@ Example command (5-shot evaluation on `claim_binary` task):
 ```bash
 lm_eval \
   --model hf \
-  --model_args pretrained=tiiuae/falcon-7b \
+  --model_args pretrained=eci-io/climategpt-7b \
   --tasks claim_binary \
-  --output_path /results/falcon-7b.jsonl \
+  --output_path /results/climategpt-7b.jsonl \
   --show_config --log_samples \
   --num_fewshot 5 \
-  --include_path <path-to-ClimateEval>/tasks/
+  --include_path <path-to-ClimateEval>/
 ```
 
 To evaluate the **full ClimateEval suite**, use the tag:
